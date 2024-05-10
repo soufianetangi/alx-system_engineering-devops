@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# This script is a multiple-choice questionnaire about the OSI model.
 
+# This script is a multiple-choice questionnaire about the OSI model.
 # What is the OSI model?
 # 2
-
 # How is the OSI model organized?
 # 2
 
