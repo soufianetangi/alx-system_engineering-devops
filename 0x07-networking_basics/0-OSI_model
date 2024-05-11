@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 # This script explains the OSI model and its organization
-
-# Answer file for the OSI model multiple choice questions
-echo "2" > 0-OSI_model
-echo "2" >> 0-OSI_model
-
+2
+2
