@@ -1,18 +1,29 @@
 #!/usr/bin/env bash
-# This script installs Nginx and configures it on a remote server
+# Script: 1-install_nginx_web_server
+# Installs Nginx web server and configures it to serve a "Hello World!" page
 
-# Update package lists
-apt-get -y update
+# Update package list and install nginx with '-y' to auto-confirm
+apt-get update
+apt-get install -y nginx
 
-# Install Nginx
-apt-get -y install nginx
+# Check if nginx is installed correctly
+if [ ! -x /usr/sbin/nginx ]; then
+    echo "Nginx installation failed."
+    exit 1
+fi
 
-# Allow Nginx through the firewall
-ufw allow 'Nginx HTTP'
+# Create a simple HTML file with "Hello World!"
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-# Create a custom HTML file with the content "Hello World!"
-echo 'Hello World!' > /var/www/html/index.html
+# Start nginx without using systemctl
+/usr/sbin/nginx
 
-# Start Nginx using the service command
-service nginx start
+# Check nginx is running
+if [ "$(pgrep nginx)" = "" ]; then
+    echo "Nginx failed to start."
+    exit 1
+fi
+
+# Clean exit
+exit 0
 
