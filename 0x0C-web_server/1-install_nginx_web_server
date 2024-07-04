@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script installs Nginx and configures it on a remote server
+
+# Update package lists
+apt-get -y update
+
+# Install Nginx
+apt-get -y install nginx
+
+# Allow Nginx through the firewall
+ufw allow 'Nginx HTTP'
+
+# Create a custom HTML file with the content "Hello World!"
+echo 'Hello World!' > /var/www/html/index.html
+
+# Start Nginx using the service command
+service nginx start
+
