@@ -15,7 +15,8 @@ if __name__ == "__main__":
     completed_tasks = [task.get("title") for task in todos if task.get("completed")]
 
     # Correct formatting for the first line
-    print(f"Employee {employee_name} is done with tasks({len(completed_tasks)}/{total_tasks}):")
+    print(f"Employee {employee_name} is done with tasks({len(completed_tasks)}"
+          f"/{total_tasks}):")
 
     # Ensure all tasks are displayed and formatted correctly
     for task in completed_tasks:
