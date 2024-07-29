@@ -5,10 +5,18 @@ import sys
 
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(sys.argv[1])).json()
-    todos = requests.get(url + "todos", params={"userId": sys.argv[1]}).json()
+    user_id = sys.argv[1]
 
-    completed = [t.get("title") for t in todos if t.get("completed") is True]
-    print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(completed), len(todos)))
-    [print("\t {}".format(c)) for c in completed]
+    user = requests.get(f"{url}users/{user_id}").json()
+    todos = requests.get(f"{url}todos", params={"userId": user_id}).json()
+
+    employee_name = user.get("name")
+    total_tasks = len(todos)
+    completed_tasks = [task.get("title") for task in todos if task.get("completed")]
+
+    # Correct formatting for the first line
+    print(f"Employee {employee_name} is done with tasks({len(completed_tasks)}/{total_tasks}):")
+
+    # Ensure all tasks are displayed and formatted correctly
+    for task in completed_tasks:
+        print(f"\t {task}")
