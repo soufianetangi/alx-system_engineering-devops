@@ -20,3 +20,4 @@ if __name__ == "__main__":
     # Ensure all tasks are displayed and formatted correctly
     for task in completed_tasks:
         print(f"\t {task}")
+
