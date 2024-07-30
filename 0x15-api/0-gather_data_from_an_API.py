@@ -15,10 +15,12 @@ if __name__ == "__main__":
 
     employee_name = user.get("name")
     total_tasks = len(todos)
-    completed_tasks = [task.get("title") for task in todos if task.get ("completed")]
-    # Split the long print statement into two lines
-    print(f"Employee {employee_name} is done with tasks({len(completed_tasks)}"
-          f"/{total_tasks}):")
+    completed_tasks = [task.get("title") for task in todos if task.get("completed")]
+
+    # Correcting the line length and whitespace issues
+    print(f"Employee {employee_name} is done with tasks("
+          f"{len(completed_tasks)}/{total_tasks}):")
 
     for task in completed_tasks:
         print(f"\t {task}")
+
