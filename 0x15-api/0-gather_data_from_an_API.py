@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Returns to-do list information for a given employee ID."""
+"""
+This script retrieves and displays the to-do list information for a given
+employee ID using data from the JSONPlaceholder API.
+"""
 import requests
 import sys
 
