@@ -19,4 +19,3 @@ def number_of_subscribers(subreddit):
     except ValueError:
         # Handle JSON decoding errors
         return 0
-
